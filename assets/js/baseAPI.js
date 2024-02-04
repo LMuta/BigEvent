@@ -5,11 +5,9 @@ $.ajaxPrefilter(function(options) {
             Authorization: localStorage.getItem('token') || '',
         }
     };
-    option.complete = function(res) {
+    options.complete = function(res) {
         // 判断响应状态
-        console.log(res)
-        if (res.responseJSON.status == 1 && 
-            res.responseJSON.mesage === '身份验证失败！') {
+        if (res.responseJSON.status == 1 && res.responseJSON.mesage === '身份验证失败！') {
             localStorage.removeItem('token');
             location.href('/login.html');
         }            
