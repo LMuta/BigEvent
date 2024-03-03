@@ -46,6 +46,7 @@ $(function() {
         })
         .toBlob(function(blob) { // 将 Canvas 画布上的内容，转化为文件对象
             fd.append('cover_img', blob);
+            publishArticle(fd);
         })
     })
 })
